@@ -17,7 +17,7 @@ export default class extends React.Component {
         const {data: {results: nowPlaying}} = await movieApi.nowPlaying();
         const {data: {results: upcoming}} = await movieApi.upcoming();
         const {data: {results: popular}} = await movieApi.popular();
- 
+        
         this.setState({
           nowPlaying,
           upcoming,
@@ -26,7 +26,7 @@ export default class extends React.Component {
         
       } catch {
         this.setState({
-          error: "Can't find movied infomation."
+          error: "Can't find Movie infomation."
         })
 
       } finally {
@@ -38,7 +38,6 @@ export default class extends React.Component {
 
     render() {
         const {nowPlaying, upcoming, popular, error, loading} = this.state;
-        console.log(this.state)
         return (
             <HomePresenter
                 nowPlaying={nowPlaying}

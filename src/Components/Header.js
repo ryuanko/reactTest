@@ -32,13 +32,11 @@ const SLink = styled(Link)`
     height:50px;
     display:flex;
     align-items:center; 
-    justify-content:center;
-    
+    justify-content:center;    
 `;
 
 const HeaderC = ({location: {pathname}}) => (
     <Header>
-        {console.log(pathname)}
         <List>
             <Item current={pathname === "/"}>
                 <SLink to="/">Home</SLink>
