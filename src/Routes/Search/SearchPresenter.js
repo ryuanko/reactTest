@@ -4,9 +4,10 @@ import styled from "styled-components"
 import Loader from "Components/Loader"
 import Section from "Components/Section"
 import Message from "Components/Message";
+import Poster from "../../Components/Poster";
 
 const Container = styled.div`
-    padding:20px 20px;
+    padding:20px;
 `;
 const Form = styled.form`
     margin-bottom:50px;
@@ -37,7 +38,15 @@ const SearchPresenter = ({moviesResults, tvResults, error, loading, searchTerm, 
                         {moviesResults && moviesResults.length>0 && (
                             <Section title="Movie Results">
                                 {moviesResults.map(i => (
-                                    <span key={i.id}>{i.title}</span>
+                                    <Poster
+                                        key={i.id}
+                                        title={i.title}
+                                        imageUrl={i.poster_path}
+                                        id={i.id}
+                                        rating={i.vote_average}
+                                        year={i.release_date && i.release_date.substring(0,4)}
+                                        isMovie={true}
+                                        />
                                 ))}
                             </Section>
                         )}
@@ -45,7 +54,15 @@ const SearchPresenter = ({moviesResults, tvResults, error, loading, searchTerm, 
                         {tvResults && tvResults.length>0 && (
                             <Section title="TV Show Results">
                                 {tvResults.map(i => (
-                                    <span key={i.id}>{i.name}</span>
+                                    <Poster
+                                        key={i.id}
+                                        title={i.original_name}
+                                        imageUrl={i.poster_path}
+                                        id={i.id}
+                                        rating={i.vote_average}
+                                        year={i.first_air_date && i.first_air_date.substring(0,4)}
+                                        isMovie={false}
+                                        />
                                 ))}
                             </Section>
                         )}

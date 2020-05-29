@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Header = styled.header `
     color: white;
-    postion:fixed;
+    position:fixed;
     top:0;
     left:0;
     width:100%;
